@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://cyclykslkaxqe"]
+
+[ext_resource type="Texture2D" uid="uid://home05vcjjnp" path="res://background menu.jpg" id="1_5lxai"]
+[ext_resource type="FontFile" uid="uid://qgmf4np7tnhs" path="res://lost-fish-font/LostFish-5DOz.ttf" id="2_1v4kn"]
+[ext_resource type="Script" uid="uid://c61blbkkn60dl" path="res://Scenes/credit_menu_button.gd" id="3_1v4kn"]
+[ext_resource type="AudioStream" uid="uid://beuindr2in1u1" path="res://Audio/UI_Click.ogg" id="4_41pci"]
+[ext_resource type="Texture2D" uid="uid://dlg0nf5ejcxi7" path="res://Scenes/UI_shell_02.png" id="5_2ntcu"]
+[ext_resource type="Script" uid="uid://4yplmotcyxs5" path="res://Scenes/nautilus_shell.gd" id="6_2ntcu"]
+[ext_resource type="Texture2D" uid="uid://icsphe2d4pa5" path="res://Scenes/UI_shell_01.png" id="6_41pci"]
+[ext_resource type="Texture2D" uid="uid://bq3vncm28gb02" path="res://shell grey.png" id="7_1l64u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hahce"]
+
+[node name="Node2D" type="Node2D" unique_id=31044572]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2114595438]
+position = Vector2(1136.5143, 610.267)
+rotation = 1.5707964
+scale = Vector2(1.3653092, 1.2484524)
+texture = ExtResource("1_5lxai")
+
+[node name="Label" type="Label" parent="." unique_id=760020851]
+offset_left = 65.0
+offset_top = 64.0
+offset_right = 730.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("2_1v4kn")
+theme_override_font_sizes/font_size = 70
+text = "Achievements"
+
+[node name="credit menu button" type="Button" parent="." unique_id=1286117437]
+offset_left = 15.0
+offset_top = 586.0
+offset_right = 160.0
+offset_bottom = 637.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_1v4kn")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hahce")
+text = "MENU"
+script = ExtResource("3_1v4kn")
+
+[node name="ui_click" type="AudioStreamPlayer" parent="credit menu button" unique_id=1493288421]
+stream = ExtResource("4_41pci")
+volume_db = 6.0
+
+[node name="natilus shell grey" type="Sprite2D" parent="." unique_id=2078704315]
+position = Vector2(420, 321)
+rotation = 1.5707964
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_41pci")
+
+[node name="nautilus shell" type="Sprite2D" parent="." unique_id=180210813]
+visible = false
+position = Vector2(420.00003, 321)
+rotation = 0.6527531
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_41pci")
+script = ExtResource("6_2ntcu")
+
+[node name="shell 2" type="Sprite2D" parent="." unique_id=1814512198]
+position = Vector2(670, 340)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_2ntcu")
+
+[node name="shell 2 grey" type="Sprite2D" parent="." unique_id=97883213]
+visible = false
+position = Vector2(669, 340)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_1l64u")
+
+[node name="credit menu button2" type="Button" parent="." unique_id=803771829]
+visible = false
+offset_left = 980.0
+offset_top = 579.0
+offset_right = 1125.0
+offset_bottom = 630.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_1v4kn")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hahce")
+text = "BACK"
+script = ExtResource("3_1v4kn")
+
+[node name="ui_click" type="AudioStreamPlayer" parent="credit menu button2" unique_id=638252097]
+stream = ExtResource("4_41pci")
+volume_db = 6.0
+
+[connection signal="pressed" from="credit menu button" to="credit menu button" method="_on_pressed"]
+[connection signal="pressed" from="credit menu button2" to="credit menu button2" method="_on_pressed"]

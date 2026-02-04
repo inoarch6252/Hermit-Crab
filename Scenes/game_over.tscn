@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://mxcmlehef8iy"]
+
+[ext_resource type="Texture2D" uid="uid://dpft8why3qt3u" path="res://Background double.png" id="1_ek8ke"]
+[ext_resource type="Script" uid="uid://dk2ahnxmgiuyb" path="res://Scenes/restart.gd" id="1_ojehl"]
+[ext_resource type="FontFile" uid="uid://qgmf4np7tnhs" path="res://lost-fish-font/LostFish-5DOz.ttf" id="2_eoghk"]
+
+[node name="GameOver" type="Control" unique_id=1062768006]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="." unique_id=1573914859]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 96.00001
+anchor_bottom = 54.000004
+offset_right = -3840.0002
+offset_bottom = -2160.0002
+texture = ExtResource("1_ek8ke")
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="." unique_id=275295451]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 95.87401
+anchor_bottom = 54.029003
+offset_left = 650.0
+offset_top = 441.0
+offset_right = -2688.9604
+offset_bottom = -1646.1602
+theme_override_fonts/font = ExtResource("2_eoghk")
+theme_override_font_sizes/font_size = 90
+text = "Game Over"
+
+[node name="Restart" type="Button" parent="." unique_id=768622815]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 95.915
+anchor_bottom = 53.955
+offset_left = 804.0
+offset_top = 597.0
+offset_right = -2743.6
+offset_bottom = -1500.2002
+theme_override_fonts/font = ExtResource("2_eoghk")
+theme_override_font_sizes/font_size = 50
+text = "RESTART
+"
+script = ExtResource("1_ojehl")
+
+[connection signal="pressed" from="Restart" to="Restart" method="_on_pressed"]

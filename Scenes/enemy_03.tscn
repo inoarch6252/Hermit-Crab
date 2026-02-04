@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cairjdq8eept6"]
+
+[ext_resource type="PackedScene" uid="uid://htyrniudb7ig" path="res://Scenes/enemy.tscn" id="1_mq1tu"]
+[ext_resource type="Texture2D" uid="uid://cf1f0lee11hg3" path="res://Larger crab enemy ani1.png" id="2_lj6w5"]
+
+[node name="enemy" unique_id=1513984115 instance=ExtResource("1_mq1tu")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1166771631]
+texture = ExtResource("2_lj6w5")

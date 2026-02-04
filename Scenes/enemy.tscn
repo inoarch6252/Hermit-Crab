@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://htyrniudb7ig"]
+
+[ext_resource type="Texture2D" uid="uid://dsxrxulw5yw7j" path="res://octopus enemy .png" id="1_hghv2"]
+[ext_resource type="Script" uid="uid://b5ryekx1tqat4" path="res://Scenes/hitbox.gd" id="2_1f0kj"]
+
+[sub_resource type="GDScript" id="GDScript_md0e3"]
+script/source = "extends CharacterBody2D
+
+var direction = 1
+const SPEED = 100.0
+
+@onready var abgrund_checker = $RayCast2D
+
+func _physics_process(delta: float) -> void:
+	if is_on_wall() or not abgrund_checker.is_colliding():
+		direction *= -1
+		$Sprite2D.flip_h = direction < 0
+
+	velocity.x = direction * SPEED
+	move_and_slide()
+	velocity.y = 0
+
+
+func _on_hitbox_body_entered(body: Node) -> void:
+	if body.name != \"player crab\":
+		return
+
+	if Global.is_hidden:
+		return
+
+	if body.has_method(\"take_damage\"):
+		body.take_damage(1)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ra3w"]
+size = Vector2(166, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uy6h"]
+size = Vector2(168, 83)
+
+[node name="enemy" type="CharacterBody2D" unique_id=1513984115]
+collision_layer = 2
+collision_mask = 2
+safe_margin = 0.1
+script = SubResource("GDScript_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1166771631]
+position = Vector2(2.000002, 6)
+scale = Vector2(0.09333331, 0.093333334)
+texture = ExtResource("1_hghv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=335969334]
+position = Vector2(5, 4)
+shape = SubResource("RectangleShape2D_4ra3w")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1044194448 groups=["enemy"]]
+script = ExtResource("2_1f0kj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1018082527]
+position = Vector2(5, 3)
+shape = SubResource("RectangleShape2D_5uy6h")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=600776749]
+target_position = Vector2(0, 52)
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

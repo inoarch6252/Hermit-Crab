@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://yj4hxqaye3ns"]
+
+[ext_resource type="Script" uid="uid://bcuielgqklihn" path="res://player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cpfbnxvru34wx" path="res://hermit crab with shell.png" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://t23we5ckbxq4" path="res://shell blue no crab_.png" id="3_3smsa"]
+[ext_resource type="Texture2D" uid="uid://bb8otaxi5oaoi" path="res://hermit crab with shell animate 1.png" id="3_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://d273rssbvhyck" path="res://hermit crab with shell animate 3.png" id="4_3smsa"]
+[ext_resource type="Texture2D" uid="uid://dk162ijauavp0" path="res://hermit crab with shell animate 4.png" id="5_8erm5"]
+[ext_resource type="Texture2D" uid="uid://cm3pp0urhvsbt" path="res://Scenes/hermitcrab_with_shell_05.png" id="7_f1ek2"]
+[ext_resource type="AudioStream" uid="uid://b4ln262o4f5oa" path="res://Audio/SFX_Jump.ogg" id="8_8erm5"]
+[ext_resource type="AudioStream" uid="uid://bd1jjs14f7q4p" path="res://Audio/SFX_Hide.ogg" id="9_f1ek2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgqql"]
+size = Vector2(809.9999, 744.99994)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fkybt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6t5aa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3smsa")
+}],
+"loop": true,
+"name": &"hide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_x3wgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3smsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8erm5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f1ek2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t5aa"]
+size = Vector2(82, 75.00001)
+
+[node name="player" type="CharacterBody2D" unique_id=827007410]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_cvnsp")
+
+[node name="crab" type="Sprite2D" parent="." unique_id=2138988891]
+visible = false
+position = Vector2(17.999992, 7.0000305)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_6t5aa")
+
+[node name="Camera2D" type="Camera2D" parent="crab" unique_id=1190240608]
+position = Vector2(-179.99991, -70.0003)
+scale = Vector2(9.999999, 9.999999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=177190230]
+visible = false
+light_mask = 2
+visibility_layer = 2
+position = Vector2(2.5000038, 7.250001)
+scale = Vector2(0.1, 0.1)
+shape = SubResource("RectangleShape2D_vgqql")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1467051752]
+position = Vector2(2, 14.000002)
+scale = Vector2(0.1025687, 0.1025687)
+sprite_frames = SubResource("SpriteFrames_fkybt")
+animation = &"walk"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1599828763 groups=["player"]]
+position = Vector2(2.0000076, 6.999996)
+scale = Vector2(0.1, 0.1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=2006466693]
+position = Vector2(9.999924, 3.6239624e-05)
+scale = Vector2(9.999996, 9.999996)
+shape = SubResource("RectangleShape2D_6t5aa")
+
+[node name="sfx_jump" type="AudioStreamPlayer" parent="." unique_id=93343728]
+stream = ExtResource("8_8erm5")
+
+[node name="sfx_hide" type="AudioStreamPlayer" parent="." unique_id=413025150]
+stream = ExtResource("9_f1ek2")
+volume_db = 8.509
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

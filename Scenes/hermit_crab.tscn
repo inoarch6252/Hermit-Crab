@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://lt88sf0vl6yv"]
+
+[ext_resource type="Script" uid="uid://c6hoahi164k31" path="res://Scenes/main_menu.gd" id="1_kusm2"]
+[ext_resource type="Texture2D" uid="uid://home05vcjjnp" path="res://background menu.jpg" id="1_vsat3"]
+[ext_resource type="Texture2D" uid="uid://g7ykk6qydc3b" path="res://crab without shell.png" id="2_bvbtx"]
+[ext_resource type="FontFile" uid="uid://qgmf4np7tnhs" path="res://lost-fish-font/LostFish-5DOz.ttf" id="2_c7ah2"]
+[ext_resource type="Script" uid="uid://cj5xr6scgmkwp" path="res://Scenes/start_button.gd" id="4_7fj48"]
+[ext_resource type="AudioStream" uid="uid://thshn11woa1n" path="res://Audio/UI_start_game.wav" id="5_2k8bt"]
+[ext_resource type="AudioStream" uid="uid://beuindr2in1u1" path="res://Audio/UI_Click.ogg" id="5_4vruu"]
+[ext_resource type="Script" uid="uid://dav5a7h7p26gw" path="res://Scenes/credit_button.gd" id="5_43k0p"]
+[ext_resource type="Script" uid="uid://xhhumoggbsux" path="res://Scenes/achievement_button.gd" id="5_bvbtx"]
+[ext_resource type="Script" uid="uid://bhbagbolqjocv" path="res://Scenes/quit_game_button.gd" id="9_2k8bt"]
+[ext_resource type="AudioStream" uid="uid://cnta7y4eeidj3" path="res://Audio/UI_Hover.ogg" id="11_kusm2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_43k0p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cpktl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bvbtx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4vruu"]
+
+[node name="Node2D" type="Node2D" unique_id=151837947]
+script = ExtResource("1_kusm2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1183141659]
+position = Vector2(1198.5989, 569.30597)
+rotation = 1.5707964
+scale = Vector2(1.2931591, 1.3116193)
+texture = ExtResource("1_vsat3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" unique_id=1554288779]
+position = Vector2(-96.12586, 313.80972)
+rotation = -1.5707964
+scale = Vector2(0.29277086, 0.27631152)
+texture = ExtResource("2_bvbtx")
+
+[node name="titel hermit crab" type="Label" parent="." unique_id=587948646]
+offset_left = 60.0
+offset_top = 128.0
+offset_right = 657.0
+offset_bottom = 205.0
+theme_override_fonts/font = ExtResource("2_c7ah2")
+theme_override_font_sizes/font_size = 70
+text = "HERMIT CRAB"
+
+[node name="start button" type="Button" parent="." unique_id=139614992]
+offset_left = 127.0
+offset_top = 260.0
+offset_right = 371.00003
+offset_bottom = 322.68033
+scale = Vector2(1.3719025, 0.6860213)
+focus_neighbor_top = NodePath("../quit game button")
+focus_neighbor_bottom = NodePath("../achievement button")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_c7ah2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_43k0p")
+text = "START GAME"
+script = ExtResource("4_7fj48")
+
+[node name="ui_click" type="AudioStreamPlayer" parent="start button" unique_id=4666819]
+stream = ExtResource("5_2k8bt")
+volume_db = 6.0
+
+[node name="sfx_hover" type="AudioStreamPlayer" parent="start button" unique_id=1424433583]
+stream = ExtResource("11_kusm2")
+
+[node name="achievement button" type="Button" parent="." unique_id=45214750]
+offset_left = 129.0
+offset_top = 297.0
+offset_right = 412.0
+offset_bottom = 358.22256
+scale = Vector2(1.3719025, 0.6860213)
+focus_neighbor_top = NodePath("../start button")
+focus_neighbor_bottom = NodePath("../credit button")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_c7ah2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cpktl")
+text = "ACHIEVEMENTS"
+script = ExtResource("5_bvbtx")
+
+[node name="ui_click" type="AudioStreamPlayer" parent="achievement button" unique_id=1650524917]
+stream = ExtResource("5_4vruu")
+volume_db = 6.0
+
+[node name="sfx_hover" type="AudioStreamPlayer" parent="achievement button" unique_id=1288510902]
+stream = ExtResource("11_kusm2")
+volume_db = -3.0
+
+[node name="credit button" type="Button" parent="." unique_id=984018567]
+offset_left = 123.0
+offset_top = 339.00003
+offset_right = 286.27692
+offset_bottom = 392.93417
+scale = Vector2(1.3719025, 0.6860213)
+focus_neighbor_top = NodePath("../achievement button")
+focus_neighbor_bottom = NodePath("../quit game button")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_c7ah2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bvbtx")
+text = "CREDITS"
+script = ExtResource("5_43k0p")
+
+[node name="ui_click" type="AudioStreamPlayer" parent="credit button" unique_id=237863303]
+stream = ExtResource("5_4vruu")
+volume_db = 6.0
+
+[node name="sfx_hover" type="AudioStreamPlayer" parent="credit button" unique_id=515169460]
+stream = ExtResource("11_kusm2")
+
+[node name="quit game button" type="Button" parent="." unique_id=829916878]
+offset_left = 126.0
+offset_top = 371.99994
+offset_right = 335.19852
+offset_bottom = 427.3919
+scale = Vector2(1.3719025, 0.6860213)
+focus_neighbor_top = NodePath("../credit button")
+focus_neighbor_bottom = NodePath("../start button")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_c7ah2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4vruu")
+text = "QUIT GAME"
+script = ExtResource("9_2k8bt")
+
+[node name="ui_click" type="AudioStreamPlayer" parent="quit game button" unique_id=90260874]
+stream = ExtResource("5_4vruu")
+volume_db = 6.0
+
+[node name="sfx_hover" type="AudioStreamPlayer" parent="quit game button" unique_id=1709926003]
+stream = ExtResource("11_kusm2")
+
+[connection signal="mouse_entered" from="start button" to="start button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="start button" to="start button" method="_on_mouse_exited"]
+[connection signal="pressed" from="start button" to="start button" method="_on_pressed"]
+[connection signal="finished" from="start button/sfx_hover" to="start button" method="_on_sfx_hover_finished"]
+[connection signal="mouse_entered" from="achievement button" to="start button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="achievement button" to="start button" method="_on_mouse_exited"]
+[connection signal="pressed" from="achievement button" to="achievement button" method="_on_pressed"]
+[connection signal="finished" from="achievement button/sfx_hover" to="achievement button" method="_on_sfx_hover_finished"]
+[connection signal="mouse_entered" from="credit button" to="start button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="credit button" to="start button" method="_on_mouse_exited"]
+[connection signal="pressed" from="credit button" to="credit button" method="_on_pressed"]
+[connection signal="finished" from="credit button/sfx_hover" to="start button" method="_on_sfx_hover_finished"]
+[connection signal="pressed" from="quit game button" to="quit game button" method="_on_pressed"]
+[connection signal="finished" from="quit game button/sfx_hover" to="start button" method="_on_sfx_hover_finished"]

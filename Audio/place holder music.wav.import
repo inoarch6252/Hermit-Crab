@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5svk4t2kd7ag"
+path="res://.godot/imported/place holder music.wav-900b22ed01ae5efa817ee9e793e038fe.sample"
+
+[deps]
+
+source_file="res://Audio/place holder music.wav"
+dest_files=["res://.godot/imported/place holder music.wav-900b22ed01ae5efa817ee9e793e038fe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

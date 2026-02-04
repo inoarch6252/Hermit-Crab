@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dyua0ythppdub"]
+
+[ext_resource type="Script" uid="uid://bvewyh4dexak3" path="res://Scenes/enemy_02.gd" id="1_5p3rj"]
+[ext_resource type="Script" uid="uid://b5ryekx1tqat4" path="res://Scenes/hitbox.gd" id="2_2354l"]
+[ext_resource type="Texture2D" uid="uid://cf1f0lee11hg3" path="res://Larger crab enemy ani1.png" id="2_ucqty"]
+[ext_resource type="Texture2D" uid="uid://ph5ewvfxh85g" path="res://Larger crab enemy ani 2.png" id="3_lb73b"]
+[ext_resource type="Texture2D" uid="uid://ch0wt5m8fmtx1" path="res://Larger crab enemy ani 3.png" id="4_eyy7p"]
+[ext_resource type="Texture2D" uid="uid://cmd2y1x53cp2f" path="res://Larger crab enemy ani.png" id="5_mxa86"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43484"]
+atlas = ExtResource("2_ucqty")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dua4t"]
+atlas = ExtResource("3_lb73b")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1xyy"]
+atlas = ExtResource("4_eyy7p")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpc2h"]
+atlas = ExtResource("5_mxa86")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qfxtc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43484")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dua4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1xyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpc2h")
+}],
+"loop": true,
+"name": &"enemy_animation",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3s8op"]
+size = Vector2(125.25, 134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlj6j"]
+size = Vector2(107, 152)
+
+[node name="enemy_02" type="CharacterBody2D" unique_id=1997209467]
+script = ExtResource("1_5p3rj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1479976259]
+position = Vector2(-768.5, 462)
+scale = Vector2(0.101, 0.144)
+sprite_frames = SubResource("SpriteFrames_qfxtc")
+animation = &"enemy_animation"
+autoplay = "enemy_animation"
+frame_progress = 0.15171634
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1784212903]
+position = Vector2(-761.75, 463)
+shape = SubResource("RectangleShape2D_3s8op")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1587596164]
+position = Vector2(-823, 199)
+script = ExtResource("2_2354l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1997649675]
+position = Vector2(60, 268)
+shape = SubResource("RectangleShape2D_hlj6j")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1319595168]
+target_position = Vector2(0, 52)
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://bdh6mn24q5w0k"]
+
+[ext_resource type="Texture2D" uid="uid://home05vcjjnp" path="res://background menu.jpg" id="1_w5wkw"]
+[ext_resource type="FontFile" uid="uid://qgmf4np7tnhs" path="res://lost-fish-font/LostFish-5DOz.ttf" id="2_sboai"]
+[ext_resource type="Script" uid="uid://c61blbkkn60dl" path="res://Scenes/credit_menu_button.gd" id="3_sboai"]
+[ext_resource type="AudioStream" uid="uid://beuindr2in1u1" path="res://Audio/UI_Click.ogg" id="4_cwkpv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sboai"]
+
+[node name="Node2D" type="Node2D" unique_id=113418649]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=134597131]
+position = Vector2(888, 412)
+rotation = 1.5707964
+texture = ExtResource("1_w5wkw")
+
+[node name="credit menu button" type="Button" parent="." unique_id=1011990793]
+offset_left = 13.0
+offset_top = 585.0
+offset_right = 158.0
+offset_bottom = 636.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_sboai")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_sboai")
+text = "BACK"
+script = ExtResource("3_sboai")
+
+[node name="ui_click" type="AudioStreamPlayer" parent="credit menu button" unique_id=2074891291]
+stream = ExtResource("4_cwkpv")
+volume_db = 6.0
+
+[node name="credits" type="Label" parent="." unique_id=571233023]
+offset_left = 395.0
+offset_top = 78.0
+offset_right = 749.0
+offset_bottom = 152.0
+theme_override_fonts/font = ExtResource("2_sboai")
+theme_override_font_sizes/font_size = 70
+text = "CREDITS"
+
+[node name="game design" type="Label" parent="." unique_id=738552387]
+offset_left = 196.0
+offset_top = 198.0
+offset_right = 411.0
+offset_bottom = 225.0
+theme_override_fonts/font = ExtResource("2_sboai")
+theme_override_font_sizes/font_size = 25
+text = "GAME DESIGN "
+
+[node name="game art" type="Label" parent="game design" unique_id=784097148]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 215.0
+offset_bottom = 107.0
+theme_override_fonts/font = ExtResource("2_sboai")
+theme_override_font_sizes/font_size = 25
+text = "GAME ART"
+
+[node name="game art2" type="Label" parent="game design" unique_id=1696197595]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 250.0
+offset_right = 217.0
+offset_bottom = 277.0
+theme_override_fonts/font = ExtResource("2_sboai")
+theme_override_font_sizes/font_size = 25
+text = "GAME Audıio"
+
+[node name="programming" type="Label" parent="game design" unique_id=843030860]
+layout_mode = 0
+offset_top = 159.0
+offset_right = 333.0
+offset_bottom = 186.0
+theme_override_fonts/font = ExtResource("2_sboai")
+theme_override_font_sizes/font_size = 25
+text = "GAME PROGRAMMING"
+
+[node name="Namen" type="Label" parent="." unique_id=597442419]
+offset_left = 643.0
+offset_top = 194.0
+offset_right = 982.0
+offset_bottom = 251.0
+theme_override_fonts/font = ExtResource("2_sboai")
+theme_override_font_sizes/font_size = 25
+text = "Heungwon Cheun 
+Hanna VoSSgaetter"
+
+[node name="Label2" type="Label" parent="Namen" unique_id=945387420]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 82.0
+offset_right = 338.0
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource("2_sboai")
+theme_override_font_sizes/font_size = 25
+text = "Heungwon Cheun "
+
+[node name="Label5" type="Label" parent="Namen" unique_id=1515951393]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 251.0
+offset_right = 333.0
+offset_bottom = 278.0
+theme_override_fonts/font = ExtResource("2_sboai")
+theme_override_font_sizes/font_size = 25
+text = "Heungwon Cheun "
+
+[node name="Label4" type="Label" parent="Namen" unique_id=1201869836]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 161.0
+offset_right = 334.0
+offset_bottom = 188.0
+theme_override_fonts/font = ExtResource("2_sboai")
+theme_override_font_sizes/font_size = 25
+text = "Heungwon Cheun "
+
+[node name="Label3" type="Label" parent="Namen" unique_id=1625744233]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 196.0
+offset_right = 332.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("2_sboai")
+theme_override_font_sizes/font_size = 25
+text = "Hanna Vossgaetter"
+
+[connection signal="pressed" from="credit menu button" to="credit menu button" method="_on_pressed"]

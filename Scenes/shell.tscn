@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ghjirkhajx7i"]
+
+[ext_resource type="Script" uid="uid://dif4h47nij46y" path="res://Scenes/shell.gd" id="1_j4ghq"]
+[ext_resource type="Texture2D" uid="uid://jkkvpnkk2i1a" path="res://shell change photoshop_.png" id="2_j4ghq"]
+[ext_resource type="AudioStream" uid="uid://dv3pk0t0hwi12" path="res://Audio/SFX_Collect.ogg" id="3_2hyhe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hyhe"]
+size = Vector2(736, 942)
+
+[node name="Area2D" type="Area2D" unique_id=1136079881 groups=["shell"]]
+position = Vector2(-49, -81)
+script = ExtResource("1_j4ghq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1686945389]
+position = Vector2(357, 376)
+texture = ExtResource("2_j4ghq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2114760567]
+position = Vector2(373, 369)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_2hyhe")
+
+[node name="SFX_Collect" type="AudioStreamPlayer" parent="." unique_id=1184111180]
+stream = ExtResource("3_2hyhe")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="finished" from="SFX_Collect" to="." method="_on_sfx_collect_finished"]
