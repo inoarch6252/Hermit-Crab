@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d1idu6l76lhro"]
+
+[ext_resource type="AudioStream" uid="uid://cmvquv2hplqs1" path="res://Audio/Background_Music.ogg" id="1_ih12m"]
+
+[node name="Music" type="Node" unique_id=792602047]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=732869179]
+stream = ExtResource("1_ih12m")
+volume_db = -3.0
+autoplay = true
+parameters/looping = true

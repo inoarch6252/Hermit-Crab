@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b4cbak1v37hee"]
+
+[ext_resource type="AudioStream" uid="uid://gs4evnadl2as" path="res://Audio/AMB_Underwater.ogg" id="1_a6myl"]
+[ext_resource type="Script" uid="uid://bx82hiwdfs7k7" path="res://ambience_audio.gd" id="2_iwr44"]
+
+[node name="Ambience" type="Node" unique_id=385657956]
+
+[node name="AmbienceAudio" type="AudioStreamPlayer" parent="." unique_id=1964598257]
+stream = ExtResource("1_a6myl")
+volume_db = 24.0
+autoplay = true
+parameters/looping = true
+script = ExtResource("2_iwr44")

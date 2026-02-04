@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://1g7sg0rkt4jn"]
+
+[ext_resource type="Texture2D" uid="uid://dtyfpc4elg88p" path="res://whale.png" id="1_xu20i"]
+
+[sub_resource type="Curve2D" id="Curve2D_ng3n0"]
+_data = {
+"points": PackedVector2Array(-121.853294, 0.7385048, 121.853294, -0.7385048, 1027, 295, -127.02283, -1.4770097, 127.02283, 1.4770097, 1268, 386, -128.21555, 0.12302607, 128.21555, -0.12302607, 1542, 321, -128.68182, 0.4406912, 128.68182, -0.4406912, 1780, 400, -128.35619, 3.2852404, 128.35619, -3.2852404, 2034, 324, -130.0039, 0.8813824, 130.0039, -0.8813824, 2289, 401, -126.40345, 0.14337444, 126.40345, -0.14337444, 2545, 323, -129.12253, 1.7627647, 129.12253, -1.7627647, 2865, 401, -3.0071716, 82.43654, 3.0071716, -82.43654, 3113, 345, 0, 0, 0, 0, 2866, 323, 0, 0, 0, 0, 2546, 259, 0, 0, 0, 0, 2291, 324, 0, 0, 0, 0, 2034, 259, 0, 0, 0, 0, 1779, 322, 0, 0, 0, 0, 1522, 258, 0, 0, 0, 0, 1265, 323, 112.08186, 0.35694855, -112.08186, -0.35694855, 1026, 258)
+}
+point_count = 17
+
+[node name="Node2D" type="Node2D" unique_id=228534571]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1537763592]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1049558192]
+position = Vector2(14, 62)
+curve = SubResource("Curve2D_ng3n0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1652958989]
+position = Vector2(1027, 295)
+rotation = -0.0060604517
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=964295015]
+texture = ExtResource("1_xu20i")
